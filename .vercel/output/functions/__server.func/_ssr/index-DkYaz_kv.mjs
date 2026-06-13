@@ -5,7 +5,7 @@ import { c as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
 import { R as Root } from "../_libs/radix-ui__react-label.mjs";
 import { S as Select$1, a as SelectValue$1, b as SelectTrigger$1, c as SelectIcon, d as SelectPortal, e as SelectContent$1, f as SelectViewport, g as SelectItem$1, h as SelectItemIndicator, i as SelectItemText, j as SelectScrollUpButton$1, k as SelectScrollDownButton$1, l as SelectLabel$1, m as SelectSeparator$1 } from "../_libs/radix-ui__react-select.mjs";
-import { D as Dumbbell, X, M as Menu, A as ArrowRight, C as Clock, F as Flame, U as Users, a as User, b as Check, c as ChevronLeft, d as ChevronRight, I as Instagram, T as Twitter, Y as Youtube, e as MapPin, P as Phone, f as ChevronDown, g as ChevronUp } from "../_libs/lucide-react.mjs";
+import { D as Dumbbell, X, M as Menu, A as ArrowRight, C as Clock, F as Flame, U as Users, a as Activity, b as Compass, S as Sparkles, c as Maximize2, d as Check, e as User, f as ChevronLeft, g as ChevronRight, I as Instagram, T as Twitter, Y as Youtube, h as MapPin, P as Phone, i as ChevronDown, j as ChevronUp } from "../_libs/lucide-react.mjs";
 import "../_libs/radix-ui__react-compose-refs.mjs";
 import "../_libs/radix-ui__react-primitive.mjs";
 import "../_libs/react-dom.mjs";
@@ -82,6 +82,7 @@ const Button = reactExports.forwardRef(
 Button.displayName = "Button";
 const links = [
   { label: "Home", href: "#home" },
+  { label: "Spaces", href: "#spaces" },
   { label: "Classes", href: "#classes" },
   { label: "Membership", href: "#membership" },
   { label: "Trainers", href: "#trainers" },
@@ -194,6 +195,169 @@ function Hero() {
         s.label
       )) })
     ] })
+  ] });
+}
+const gymWeights = "/assets/gym-weights-C6FP0kTj.png";
+const gymCardio = "/assets/gym-cardio-BxtFL2QP.png";
+const gymYoga = "/assets/gym-yoga-YSG1qUy1.png";
+const gymRecovery = "/assets/gym-recovery-yPTZ9c5-.png";
+const spaces = [
+  {
+    id: "weights",
+    title: "Weight Training Zone",
+    tagline: "Engineered for pure strength.",
+    description: "Equipped with competition-grade power cages, Olympic lifting platforms, custom dumbbells up to 150 lbs, and state-of-the-art selectorized strength machines.",
+    img: gymWeights,
+    icon: Dumbbell,
+    features: [
+      "Eleiko competition barbells & plates",
+      "10+ multi-purpose power racks",
+      "Specialized lifting turf & sled tracks",
+      "Dumbbell range up to 150 lbs"
+    ],
+    equipment: ["Eleiko Barbells", "Hammer Strength Cages", "BOSU & Kettlebells", "Plateloaded Leg Press"]
+  },
+  {
+    id: "cardio",
+    title: "Cardio Deck",
+    tagline: "Elevate your conditioning.",
+    description: "Rows of premium Woodway treadmills, assault bikes, stairmasters, and rowing machines positioned with panoramic views and integrated telemetry tracking.",
+    img: gymCardio,
+    icon: Activity,
+    features: [
+      "Woodway Curve self-powered treadmills",
+      "Assault AirBikes & Concept2 Rowers",
+      "Heart rate telemetry screen integration",
+      "Panoramic city views during training"
+    ],
+    equipment: ["Woodway Curve", "Concept2 Rowers", "Assault AirBikes", "StairMaster Gauntlet"]
+  },
+  {
+    id: "yoga",
+    title: "Yoga & Pilates Studio",
+    tagline: "Find your alignment.",
+    description: "A tranquil, climate-controlled oasis designed for Vinyasa flow, hot yoga, mobility drills, and guided mindfulness sessions.",
+    img: gymYoga,
+    icon: Compass,
+    features: [
+      "Infrared radiant heating panels",
+      "HEPA medical-grade air filtration",
+      "Premium Manduka PRO yoga mats",
+      "Immersive ambient light & sound system"
+    ],
+    equipment: ["Manduka Mats", "Pilates Reformers", "Meditation Cushions", "Yoga Blocks & Straps"]
+  },
+  {
+    id: "recovery",
+    title: "Recovery Lounge",
+    tagline: "Rest, rebuild, repeat.",
+    description: "Unlock peak performance with custom-built cold plunge pools, traditional Finnish saunas, infrared suites, and hyperbaric oxygen chambers.",
+    img: gymRecovery,
+    icon: Sparkles,
+    features: [
+      "Thermoregulated 42°F cold plunge pools",
+      "Traditional dry Finnish wood sauna",
+      "Full-spectrum infrared sauna suites",
+      "Hyperbaric oxygen therapy chambers"
+    ],
+    equipment: ["Plunge Cold Pools", "Finnish Wood Sauna", "Clearlight IR Sauna", "Hyperbaric Chambers"]
+  }
+];
+function Spaces() {
+  const [activeSpace, setActiveSpace] = reactExports.useState(null);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "spaces", className: "py-24 sm:py-32 bg-card/25 border-y border-border/50", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-2xl mb-12", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs uppercase tracking-[0.2em] text-primary font-semibold", children: "Our Facilities" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-3 text-4xl sm:text-5xl font-bold", children: "World-class spaces built for elite results." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-muted-foreground", children: "Explore our meticulously engineered zones designed to maximize every second of your training and recovery." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid gap-6 md:grid-cols-2 lg:grid-cols-4", children: spaces.map((space) => {
+        const Icon = space.icon;
+        return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            onClick: () => setActiveSpace(space),
+            className: "group relative h-[420px] rounded-3xl overflow-hidden glass border border-border/40 cursor-pointer hover:border-primary/40 transition-all duration-500 hover:-translate-y-2",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 z-0 overflow-hidden", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "img",
+                  {
+                    src: space.img,
+                    alt: space.title,
+                    className: "size-full object-cover transition-transform duration-700 group-hover:scale-110",
+                    loading: "lazy"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-background via-background/40 to-black/20 group-hover:via-background/50 transition-all duration-300" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-5 right-5 z-10 size-10 rounded-full glass border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Maximize2, { className: "size-4 text-primary" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-x-0 bottom-0 p-6 z-10 flex flex-col justify-end h-1/2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "size-10 rounded-xl bg-primary/20 backdrop-blur-md text-primary flex items-center justify-center w-fit mb-4 border border-primary/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "size-5" }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-2xl font-bold text-white tracking-tight", children: space.title }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-primary font-medium mt-1", children: space.tagline }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-2 line-clamp-2 opacity-80 group-hover:opacity-100 transition-opacity", children: space.description })
+              ] })
+            ]
+          },
+          space.id
+        );
+      }) })
+    ] }),
+    activeSpace && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-fade-in", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: "relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl glass border border-white/10 flex flex-col md:flex-row shadow-[var(--shadow-glow)]",
+        onClick: (e) => e.stopPropagation(),
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              onClick: () => setActiveSpace(null),
+              className: "absolute top-5 right-5 z-20 size-10 rounded-full bg-black/50 border border-white/10 text-white flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-200",
+              "aria-label": "Close details",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "size-5" })
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full md:w-1/2 min-h-[300px] md:min-h-[450px]", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "img",
+              {
+                src: activeSpace.img,
+                alt: activeSpace.title,
+                className: "absolute inset-0 size-full object-cover"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-background/90" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "size-9 rounded-lg bg-primary/20 text-primary flex items-center justify-center border border-primary/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(activeSpace.icon, { className: "size-4" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs uppercase tracking-widest text-primary font-bold", children: "Featured Space" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-3xl font-bold tracking-tight", children: activeSpace.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-primary font-medium mt-1", children: activeSpace.tagline }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm mt-4 leading-relaxed", children: activeSpace.description }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-semibold text-white uppercase tracking-wider mb-3", children: "Key Highlights" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2.5", children: activeSpace.features.map((feature, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-3 text-sm", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "grid place-items-center size-5 rounded-full bg-primary/15 text-primary shrink-0 mt-0.5 border border-primary/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "size-3", strokeWidth: 3 }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground/80", children: feature })
+              ] }, i)) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 pt-6 border-t border-white/5 flex flex-wrap gap-2", children: activeSpace.equipment.map((eq, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "span",
+              {
+                className: "text-[11px] px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-muted-foreground font-semibold uppercase tracking-wider",
+                children: eq
+              },
+              i
+            )) })
+          ] })
+        ]
+      }
+    ) })
   ] });
 }
 const categories = ["All", "HIIT", "Strength", "Yoga", "Boxing", "Functional"];
@@ -664,6 +828,7 @@ function Index() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Spaces, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Classes, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Pricing, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Trainers, {}),

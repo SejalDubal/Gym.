@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/apex/Navbar";
 import { Hero } from "@/components/apex/Hero";
+import { Spaces } from "@/components/apex/Spaces";
 import { Classes } from "@/components/apex/Classes";
 import { Pricing } from "@/components/apex/Pricing";
 import { Trainers } from "@/components/apex/Trainers";
@@ -25,6 +26,7 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
+        <Spaces />
         <Classes />
         <Pricing />
         <Trainers />
